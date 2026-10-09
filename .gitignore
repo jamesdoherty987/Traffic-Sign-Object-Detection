@@ -1,1 +1,20 @@
 .env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+
+# data & model artifacts (do not commit)
+datasets/
+data/
+*.zip
+*.pt
+*.pth
+*.onnx
+*.weights
+runs/
+outputs/
+checkpoints/
+wandb/
