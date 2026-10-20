@@ -1,0 +1,6 @@
+torch
+torchvision
+pillow
+python-dotenv
+kagglehub
+torchmetrics

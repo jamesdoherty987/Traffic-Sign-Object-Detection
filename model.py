@@ -1,8 +1,11 @@
 import torch
-from torchvision.models.detection import fasterrcnn_resnet50_fpn, FasterRCNN_ResNet50_FPN_Weights
+from torchvision.models.detection import (
+    FasterRCNN_ResNet50_FPN_Weights,
+    fasterrcnn_resnet50_fpn,
+)
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 
-NUM_CLASSES = 9
+NUM_CLASSES = 9  # 8 signs + background
 
 
 def build_model(freeze_backbone, seed=0):
