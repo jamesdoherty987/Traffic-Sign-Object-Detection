@@ -66,7 +66,7 @@ def val_map50(model, loader, device):
     return float(metric.compute()["map"].item())
 
 
-def train_one(freeze, seed, epochs, batch_size, lr):
+def train_one(freeze, seed, epochs, batch_size, lr, out_base):
     set_seed(seed)
     device = get_device()
     data_root = get_data_root()
@@ -90,7 +90,7 @@ def train_one(freeze, seed, epochs, batch_size, lr):
     optimizer = torch.optim.SGD(params, lr=lr, momentum=0.9, weight_decay=0.0005)
 
     tag = "freeze" if freeze else "unfreeze"
-    out_dir = ROOT / "runs" / f"{tag}_seed{seed}"
+    out_dir = Path(out_base) / f"{tag}_seed{seed}"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     config = {
@@ -144,11 +144,12 @@ def main():
     p.add_argument("--batch-size", type=int, default=2)
     p.add_argument("--lr", type=float, default=0.005)
     p.add_argument("--seed", type=int, default=None, help="run one seed only (for a quick test)")
+    p.add_argument("--out", default=str(ROOT / "runs"), help="base dir for results (e.g. a Drive path)")
     args = p.parse_args()
 
     seeds = [args.seed] if args.seed is not None else SEEDS
     for seed in seeds:
-        train_one(args.freeze, seed, args.epochs, args.batch_size, args.lr)
+        train_one(args.freeze, seed, args.epochs, args.batch_size, args.lr, args.out)
 
 
 if __name__ == "__main__":
