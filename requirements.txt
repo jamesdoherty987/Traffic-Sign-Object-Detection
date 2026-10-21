@@ -4,3 +4,5 @@ pillow
 python-dotenv
 kagglehub
 torchmetrics
+pycocotools
+matplotlib

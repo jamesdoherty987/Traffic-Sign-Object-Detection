@@ -1,11 +1,27 @@
+# secrets
 .env
+
+# python
 .venv/
 venv/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# assignment brief (not part of deliverable)
+PROJECT_SPECIFICATION.md
+
+# datasets (re-downloaded via kagglehub)
 data/
+train/images/
+test/images/
 *.zip
+
+# model weights (large; re-trainable; kept in Drive)
 *.pt
 *.pth
-runs/
+test/public_annotations.json
+train/annotations.json

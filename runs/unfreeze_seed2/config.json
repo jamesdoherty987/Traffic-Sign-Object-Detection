@@ -1,0 +1,10 @@
+{
+  "freeze_backbone": false,
+  "seed": 2,
+  "epochs": 15,
+  "batch_size": 2,
+  "lr": 0.005,
+  "device": "cuda",
+  "n_train": 602,
+  "n_val": 106
+}
